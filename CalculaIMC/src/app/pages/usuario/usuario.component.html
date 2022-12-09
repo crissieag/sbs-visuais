@@ -1,0 +1,50 @@
+<mat-card id="cadastrar">
+	<mat-card-header>
+		<mat-card-title> Cadastrar Usuario </mat-card-title>
+	</mat-card-header>
+	<mat-card-content>
+		<mat-form-field floatLabel="never" class="input" id="nome">
+			<input
+				matInput
+				type="text"
+				name="txtNome"
+				id="txtNome"
+				placeholder="Nome"
+				[(ngModel)]="nome"
+			/>
+		</mat-form-field>
+		<br />
+		<mat-form-field floatLabel="never" class="input" id="cpf">
+			<input
+				matInput
+				type="date"
+				name="nascimento"
+				id="nascimento"
+				placeholder="Data de nascimento"
+				[(ngModel)]="nascimento"
+			/>
+		</mat-form-field>
+	</mat-card-content>
+	<button mat-raised-button color="warn" (click)="cadastrar()">
+		Cadastrar
+	</button>
+</mat-card>
+<mat-card>
+	<mat-card-header class="headerBox">
+		<mat-card-title> Lista de Usuarios </mat-card-title>
+	</mat-card-header>
+	<mat-card-content>
+		<table>
+			<tr>
+				<th>Código</th>
+				<th>Nome</th>
+				<th>Data de nascimento</th>
+			</tr>
+			<tr *ngFor="let usuario of usuarios">
+				<td>{{ usuario.id }}</td>
+				<td>{{ usuario.nome }}</td>
+				<td>{{ usuario.nascimento }}</td>
+			</tr>
+		</table>
+	</mat-card-content>
+</mat-card>

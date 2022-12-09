@@ -1,0 +1,74 @@
+<mat-card class="box" id="cadastrar">
+	<mat-card-header class="headerBox">
+		<mat-card-title> Cadastrar IMC </mat-card-title>
+	</mat-card-header>
+	<mat-card-content>
+		<mat-form-field>
+			<mat-select id="usuario" [(ngModel)]="usuarioid" placeholder="Usuario">
+				<mat-option *ngFor="let usuario of usuarios" value="{{ usuario.id }}">
+					{{ usuario.id }} - {{ usuario.nome }}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+
+		<mat-form-field>
+			<input
+				matInput
+				type="number"
+				name="altura"
+				id="altura"
+				placeholder="Altura (metros)"
+				[(ngModel)]="altura"
+			/>
+		</mat-form-field>
+
+		<mat-form-field>
+			<input
+				matInput
+				type="number"
+				name="peso"
+				id="peso"
+				placeholder="Peso (kgs)"
+				[(ngModel)]="peso"
+			/>
+		</mat-form-field>
+	</mat-card-content>
+	<button
+		mat-raised-button
+		color="warn"
+		class="btnCadastrar"
+		(click)="cadastrar()"
+	>
+		Cadastrar
+	</button>
+</mat-card>
+<mat-card>
+	<mat-card-header class="headerBox">
+		<mat-card-title> Lista de IMCS </mat-card-title>
+	</mat-card-header>
+	<mat-card-content>
+		<table>
+			<tr>
+				<th>Código</th>
+				<th>Usuario</th>
+				<th>Data de nascimento</th>
+				<th>Altura</th>
+				<th>Peso</th>
+				<th>IMC</th>
+				<th>Classificação</th>
+				<th>Data de criação</th>
+			</tr>
+
+			<tr *ngFor="let imc of imcs">
+				<td>{{ imc.id }}</td>
+				<td>{{ imc.usuario?.nome }}</td>
+				<td>{{ imc.usuario?.nascimento }}</td>
+				<td>{{ imc.altura }}</td>
+				<td>{{ imc.peso }}</td>
+				<td>{{ imc.imcUsuario }}</td>
+				<td>{{ imc.classificacaoFormatada }}</td>
+				<td>{{ imc.dataCriacao }}</td>
+			</tr>
+		</table>
+	</mat-card-content>
+</mat-card>

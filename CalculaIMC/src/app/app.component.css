@@ -1,0 +1,15 @@
+.container {
+    height: calc(100% - 64px);
+    
+}
+
+.icon {
+    margin-right: 10px;
+}
+
+.content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
